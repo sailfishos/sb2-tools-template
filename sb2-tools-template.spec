@@ -30,7 +30,7 @@ It is not intended to be used in a normal system!
 
 set +x
 mkdir -p %buildroot
-rpm -ql %packages_in_tools > filestoinclude1
+rpm -ql %packages_in_tools %cross_compilers > filestoinclude1
 cat > filestoignore << EOF
 /usr/share/man
 /root

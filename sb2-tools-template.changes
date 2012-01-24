@@ -1,2 +1,5 @@
 * Tue Jan 24 2011 Carsten Munk <carsten.munk@gmail.com> - 1.0
+- Fix missing cross compilers
+
+* Tue Jan 24 2011 Carsten Munk <carsten.munk@gmail.com> - 1.0
 - Initial import
