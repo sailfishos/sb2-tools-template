@@ -1,3 +1,6 @@
+* Tue Feb 07 2011 Carsten Munk <carsten@merproject.org> - 1.0
+- Add autoconf/automake to tools set
+
 * Tue Jan 24 2011 Carsten Munk <carsten.munk@gmail.com> - 1.0
 - Fix missing cross compilers
 
