@@ -38,7 +38,6 @@ cat > filestoignore << EOF
 /usr/bin/chfn
 /usr/bin/chsh
 /etc/securetty
-/usr/sbin/glibc_post_upgrade.i686
 /var/cache/ldconfig
 /usr/libexec/pt_chown
 /usr/sbin/build-locale-archive
@@ -48,6 +47,7 @@ cat > filestoignore << EOF
 /var/log/faillog
 /var/log/tallylog
 EOF
+rpm -ql glibc | grep /usr/sbin/glibc_post_upgrade >> filestoignore
 grep -vf filestoignore filestoinclude1 | sort | uniq > filestoinclude2
 tar --no-recursion -T filestoinclude2 -cpf - | ( cd %buildroot && fakeroot tar -xvpf - )
 
