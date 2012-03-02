@@ -73,7 +73,7 @@ shellquote()
 echo "Creating baselibs_new.conf"
 echo ""
 rm -rRf /tmp/baselibs_new.conf || true
-shellquote "arch i586 targets armv7hl:inject" >> /tmp/baselibs_new.conf
+shellquote "arch i486 targets armv7hl:inject" >> /tmp/baselibs_new.conf
 shellquote "%{name}" >> /tmp/baselibs_new.conf
 shellquote "  targettype x86 block!" >> /tmp/baselibs_new.conf
 shellquote "  targettype 32bit block!" >> /tmp/baselibs_new.conf
