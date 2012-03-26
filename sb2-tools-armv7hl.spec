@@ -28,7 +28,7 @@ It is not intended to be used in a normal system!
 
 %install
 
-set +x
+#set +x -e
 mkdir -p %buildroot
 rpm -ql %packages_in_tools %cross_compilers > filestoinclude1
 cat > filestoignore << EOF
@@ -40,6 +40,7 @@ cat > filestoignore << EOF
 /etc/securetty
 /var/cache/ldconfig
 /usr/libexec/pt_chown
+/usr/lib/locale/locale-archive
 /usr/sbin/build-locale-archive
 /usr/sbin/tzdata-update
 /etc/security/opasswd
@@ -47,7 +48,6 @@ cat > filestoignore << EOF
 /var/log/faillog
 /var/log/tallylog
 EOF
-rpm -ql glibc | grep /usr/sbin/glibc_post_upgrade >> filestoignore
 grep -vf filestoignore filestoinclude1 | sort | uniq > filestoinclude2
 tar --no-recursion -T filestoinclude2 -cpf - | ( cd %buildroot && fakeroot tar -xvpf - )
 

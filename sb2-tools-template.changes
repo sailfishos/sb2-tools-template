@@ -1,3 +1,6 @@
+* Mon Mar 26 2012 Carsten Munk <carsten@merproject.org> - 1.0
+- Ignore locale-archive missing for now
+
 * Fri Mar 02 2012 Carsten Munk <carsten@merproject.org> - 1.0
 - Make it compatible with Core_i486
 
