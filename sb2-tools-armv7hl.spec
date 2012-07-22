@@ -47,6 +47,8 @@ cat > filestoignore << EOF
 /sbin/unix_update
 /var/log/faillog
 /var/log/tallylog
+/var/lock
+/var/lock/subsys
 EOF
 grep -vf filestoignore filestoinclude1 | sort | uniq > filestoinclude2
 tar --no-recursion -T filestoinclude2 -cpf - | ( cd %buildroot && fakeroot tar -xvpf - )
@@ -56,7 +58,7 @@ mkdir -p %buildroot/var/lib/rpm/
 mkdir -p %buildroot/etc/
 touch %buildroot/etc/securetty
 mkdir -p %buildroot/var/cache/ldconfig/
-
+mkdir -p %buildroot/var/lock/subsys
 shellquote()
 {
     for arg; do
