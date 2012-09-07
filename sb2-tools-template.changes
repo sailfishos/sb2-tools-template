@@ -1,3 +1,6 @@
+* Fri Sep 7 2012 Carsten Munk <carsten@merproject.org> - 1.0
+- Add armv7tnhl port
+
 * Fri Jun 1 2012 Carsten Munk <carsten@merproject.org> - 1.0
 - Fix MER#349, caused by openssl libs relocation
 
