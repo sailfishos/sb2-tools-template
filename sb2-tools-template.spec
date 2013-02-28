@@ -22,6 +22,15 @@ Summary:       SB2 cross tools
 This is a package providing %packages_in_tools %cross_compilers for SB2 tools directory 
 It is not intended to be used in a normal system!
 
+
+%package dependency
+Summary: Dependency for sb2 host side
+Group: Development/Tools
+
+%description dependency
+This is a package providing %packages_in_tools %cross_compilers for SB2 tools directory
+It is not intended to be used in a normal system!
+
 %prep
 
 %build
@@ -66,7 +75,7 @@ shellquote()
 #        arg=${arg//\$/\$}   # already needs quoting ;(
 #        arg=${arg/\"/\\\"}  # dito
 #        arg=${arg//\`/\`}   # dito
-        arg=${arg//\\|/\|}
+        arg=${arg//\\ |/\|}
         arg=${arg//\\|/|}
         echo "$arg"
     done
@@ -86,8 +95,19 @@ shellquote "  targettype inject -%{_mandir}" >> /tmp/baselibs_new.conf
 shellquote "  targettype inject -%{_docdir}" >> /tmp/baselibs_new.conf
 shellquote "  targettype inject config    -/sb2-config$" >> /tmp/baselibs_new.conf
 
-cat /tmp/baselibs_new.conf > %{_sourcedir}/baselibs.conf
+shellquote "arch i486 targets @ARCH@:inject" >> /tmp/baselibs_new.conf
+shellquote "%{name}-dependency" >> /tmp/baselibs_new.conf
+shellquote "  targettype x86 block!" >> /tmp/baselibs_new.conf
+shellquote "  targettype 32bit block!" >> /tmp/baselibs_new.conf
+shellquote "  targettype inject autoreqprov off" >> /tmp/baselibs_new.conf
+shellquote "  targettype inject extension -inject" >> /tmp/baselibs_new.conf
+shellquote "  targettype inject +/" >> /tmp/baselibs_new.conf
+shellquote "  targettype inject -%{_mandir}" >> /tmp/baselibs_new.conf
+shellquote "  targettype inject -%{_docdir}" >> /tmp/baselibs_new.conf
+shellquote "  targettype inject config    -/sb2-config$" >> /tmp/baselibs_new.conf
 
+cat /tmp/baselibs_new.conf > %{_sourcedir}/baselibs.conf
+touch %buildroot/etc/sb2-tools-template
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -98,3 +118,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir /var/lib/rpm/
 %dir /var/cache/ldconfig/
 /etc/securetty
+
+%files dependency
+%defattr(-,root,root)
+/etc/sb2-tools-template

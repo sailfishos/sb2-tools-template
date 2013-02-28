@@ -1,3 +1,6 @@
+* Thu Feb 28 2013 Carsten Munk <carsten.munk@jollamobile.com> - 1.0
+- Add dependency package for builds to depend on to ensure rebuilds are done properly
+
 * Thu Nov 01 2012 David Greaves <david@dgreaves.com> - 1.0
 - Add i486 cross-target
 
