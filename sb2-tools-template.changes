@@ -1,3 +1,6 @@
+* Sun Mar 24 2013 Juha Kallioinen <juha.kallioinen@jollamobile.com> - 1.0
+- Add ccache to tools
+
 * Thu Feb 28 2013 Carsten Munk <carsten.munk@jollamobile.com> - 1.0
 - Add dependency package for builds to depend on to ensure rebuilds are done properly
 
