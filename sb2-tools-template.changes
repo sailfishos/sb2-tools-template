@@ -1,3 +1,6 @@
+* Fri Apr 05 2013 Juha Kallioinen <juha.kallioinen@jollamobile.com> - 1.0
+- Add qt-qmake, qt5-qmake and qtchooser to tools
+
 * Sun Mar 24 2013 Juha Kallioinen <juha.kallioinen@jollamobile.com> - 1.0
 - Add ccache to tools
 
