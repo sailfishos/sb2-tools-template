@@ -1,3 +1,6 @@
+* Mon Apr 29 2013 Carsten Munk <carsten.munk@jollamobile.com> - 1.0
+- Add perl-threads to satisfy automake
+
 * Fri Apr 05 2013 Juha Kallioinen <juha.kallioinen@jollamobile.com> - 1.0
 - Add qt-qmake, qt5-qmake and qtchooser to tools
 
