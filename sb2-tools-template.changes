@@ -1,3 +1,6 @@
+* Tue Apr 30 2013 Carsten Munk <carsten.munk@jollamobile.com> - 1.0
+- Add perl-threads-shared 
+
 * Mon Apr 29 2013 Carsten Munk <carsten.munk@jollamobile.com> - 1.0
 - Add perl-threads to satisfy automake
 
