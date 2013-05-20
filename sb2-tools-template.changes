@@ -1,3 +1,7 @@
+* Mon May 20 2013 Juha Kallioinen <juha.kallioinen@jollamobile.com> - 1.0
+- Add qt-tools and qt5-tools and the required dependencies (fontconfig,
+  freetype and expat)
+
 * Tue May 14 2013 Juha Kallioinen <juha.kallioinen@jollamobile.com> - 1.0
 - Add python, python-libs, zip, xz and doxygen
 
