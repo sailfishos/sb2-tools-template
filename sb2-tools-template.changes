@@ -1,3 +1,6 @@
+* Mon May 27 2013 Juha Kallioinen <juha.kallioinen@jollamobile.com> - 1.0
+- Add libsb2 to tools (required by scratchbox2)
+
 * Mon May 20 2013 Juha Kallioinen <juha.kallioinen@jollamobile.com> - 1.0
 - Add qt-tools and qt5-tools and the required dependencies (fontconfig,
   freetype and expat)
