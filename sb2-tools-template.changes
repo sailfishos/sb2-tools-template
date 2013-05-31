@@ -1,3 +1,6 @@
+* Fri May 31 2013 Carsten Munk <carsten.munk@jollamobile.com> - 1.0
+- Add armv7thl port
+
 * Mon May 27 2013 Juha Kallioinen <juha.kallioinen@jollamobile.com> - 1.0
 - Add libsb2 to tools (required by scratchbox2)
 
