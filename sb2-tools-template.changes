@@ -1,3 +1,6 @@
+* Fri Oct 25 2013 Islam Amer  <islam.amer@jollamobile.com> - 1.0
+- Remove all Qt deps, now sb2-tools-qt5 provides accelerated Qt tools
+
 * Wed Jun 05 2013 Juha Kallioinen <juha.kallioinen@jollamobile.com> - 1.0
 - Add cmake to tools
 
