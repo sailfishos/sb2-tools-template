@@ -41,6 +41,8 @@ It is not intended to be used in a normal system!
 mkdir -p %buildroot
 rpm -ql %packages_in_tools %cross_compilers > filestoinclude1
 cat > filestoignore << EOF
+/etc/shadow
+/etc/gshadow
 /usr/share/man
 /root
 /var/lib/rpm
@@ -61,6 +63,11 @@ cat > filestoignore << EOF
 EOF
 grep -vf filestoignore filestoinclude1 | sort | uniq > filestoinclude2
 tar --no-recursion -T filestoinclude2 -cpf - | ( cd %buildroot && fakeroot tar -xvpf - )
+
+sed 's|:.*$|:*:16229:0:99999:7:::|' < /etc/passwd > %{buildroot}/etc/shadow
+sed 's|:.*$|:*::|' < /etc/group > %{buildroot}/etc/gshadow
+chmod 0400 %buildroot/etc/shadow
+chmod 0400 %buildroot/etc/gshadow
 
 mkdir -p %buildroot/root/
 mkdir -p %buildroot/var/lib/rpm/
@@ -118,6 +125,8 @@ rm -rf $RPM_BUILD_ROOT
 %dir /var/lib/rpm/
 %dir /var/cache/ldconfig/
 /etc/securetty
+%verify(not md5 size mtime) %attr(0400,root,root) %config(noreplace) /etc/shadow
+%verify(not md5 size mtime) %attr(0400,root,root) %config(noreplace) /etc/gshadow
 
 %files dependency
 %defattr(-,root,root)

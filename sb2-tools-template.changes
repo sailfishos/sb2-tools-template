@@ -1,3 +1,6 @@
+* Tue Jun 10 2014 Oleg Girko <oleg.girko@jolla.com> - 1.0
+- Generate /etc/shadow and /etc/gshadow files instead of copying them
+
 * Wed Mar 19 2014 Islam Amer <islam.amer@jollamobile.com> - 1.0
 - Add libicu as new sqlite links against it and rpm links against sqlite
 
