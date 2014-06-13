@@ -3,6 +3,7 @@
 %define _build_name_fmt    %%{ARCH}/%%{NAME}-%%{VERSION}-%%{RELEASE}.%%{ARCH}.dontuse.rpm
 %define packages_in_tools  fakeroot bash bzip2 bzip2-libs coreutils db4 diffutils elfutils elfutils-libs elfutils-libelf fdupes file-libs filesystem glibc glibc-common groff libacl libattr libcap libgcc liblua libstdc++ ncurses-libs nspr nss nss-softokn-freebl pam popt readline rpm rpm rpm-build rpm-build rpm-devel rpm-libs rpm-libs sed setup sqlite tar xz-libs zlib perl perl-threads perl-threads-shared perl-Scalar-List-Utils perl-libs util-linux libblkid libuuid grep pcre scratchbox2 libsb2 gawk glib2 file net-tools glibc-devel gcc libgomp glibc-headers kernel-headers binutils cpp mpc mpfr gmp findutils cpio rpmlint-mini make m4 gzip libcap openssl-libs qemu-usermode autoconf automake ccache python python-libs zip xz doxygen fontconfig freetype expat cmake libarchive libcurl libxml2 libidn libicu libicu52 libmount libsmartcols
 %define cross_compilers   cross-aarch64-gcc cross-aarch64-binutils 
+%global _python_bytecompile_errors_terminate_build 0
 
 Name:          sb2-tools-aarch64
 Version:       1.0
