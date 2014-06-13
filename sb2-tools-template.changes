@@ -1,3 +1,6 @@
+* Tue Jun 10 2014 Oleg Girko <oleg.girko@jolla.com> - 1.0
+- Generate /etc/shadow and /etc/gshadow files instead of copying them
+
 * Wed Jun 05 2013 Juha Kallioinen <juha.kallioinen@jollamobile.com> - 1.0
 - Add cmake to tools
 
