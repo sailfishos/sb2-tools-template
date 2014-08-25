@@ -1,3 +1,6 @@
+* Mon Aug 25 2014 Islam Amer <islam.amer@jolla.com> - 1.0
+- New util-linux splits off libmount and libsmartcols so add them explicitly
+
 * Tue Jun 10 2014 Oleg Girko <oleg.girko@jolla.com> - 1.0
 - Generate /etc/shadow and /etc/gshadow files instead of copying them
 
