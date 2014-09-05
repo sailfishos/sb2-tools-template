@@ -1,3 +1,6 @@
+* Fri Sep 05 2014 Munk <carsten.munk@jolla.com> - 1.0
+- Remove qt4
+
 * Fri Jun 13 2014 Carsten Munk <carsten.munk@jolla.com> - 1.0
 - Fix python bytecompile failure
 
