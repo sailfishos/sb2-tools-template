@@ -11,7 +11,7 @@ AutoReqProv:   0
 BuildRequires: rpm grep tar patchelf sed
 BuildRequires: %packages_in_tools
 BuildRequires: %cross_compilers
-ExclusiveArch: %{ix86}
+
 
 # no auto requirements - they're generated
 License:       BSD
