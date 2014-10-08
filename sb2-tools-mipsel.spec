@@ -1,11 +1,10 @@
 %define __strip /bin/true
-%define architecture_target mipsel
-%define _build_name_fmt    %%{ARCH}/%%{NAME}-%%{VERSION}-%%{RELEASE}.%%{ARCH}.dontuse.rpm
 %define packages_in_tools  fakeroot bash bzip2 bzip2-libs coreutils db4 diffutils elfutils elfutils-libs elfutils-libelf fdupes file-libs filesystem glibc glibc-common groff libacl libattr libcap libgcc liblua libstdc++ ncurses-libs nspr nss nss-softokn-freebl pam popt readline rpm rpm rpm-build rpm-build rpm-devel rpm-libs rpm-libs sed setup sqlite tar xz-libs zlib perl perl-threads perl-threads-shared perl-Scalar-List-Utils perl-libs util-linux libblkid libuuid grep pcre scratchbox2 libsb2 gawk glib2 file net-tools glibc-devel gcc libgomp glibc-headers kernel-headers binutils cpp mpc mpfr gmp findutils cpio rpmlint-mini make m4 gzip libcap openssl-libs qemu-usermode autoconf automake ccache qtchooser qt5-qmake python python-libs zip xz doxygen qt5-tools fontconfig freetype expat cmake libarchive libcurl libxml2 libidn qt5-qtxml qt5-qtcore
 %define cross_compilers   cross-mipsel-gcc cross-mipsel-binutils 
 %global _python_bytecompile_errors_terminate_build 0
+%define _target_cpu mipsel
 
-Name:          sb2-tools-mipsel
+Name:          sb2-tools-mipsel-inject
 Version:       1.0
 Release:       1
 AutoReqProv:   0
@@ -24,11 +23,11 @@ This is a package providing %packages_in_tools %cross_compilers for SB2 tools di
 It is not intended to be used in a normal system!
 
 
-%package dependency
+%package -n sb2-tools-mipsel-dependency-inject
 Summary: Dependency for sb2 host side
 Group: Development/Tools
 
-%description dependency
+%description -n sb2-tools-mipsel-dependency-inject
 This is a package providing %packages_in_tools %cross_compilers for SB2 tools directory
 It is not intended to be used in a normal system!
 
@@ -76,45 +75,6 @@ mkdir -p %buildroot/etc/
 touch %buildroot/etc/securetty
 mkdir -p %buildroot/var/cache/ldconfig/
 mkdir -p %buildroot/var/lock/subsys
-shellquote()
-{
-    for arg; do
-        arg=${arg//\\/\\\\}
-#        arg=${arg//\$/\$}   # already needs quoting ;(
-#        arg=${arg/\"/\\\"}  # dito
-#        arg=${arg//\`/\`}   # dito
-        arg=${arg//\\ |/\|}
-        arg=${arg//\\|/|}
-        echo "$arg"
-    done
-}
-
-echo "Creating baselibs_new.conf"
-echo ""
-rm -rRf /tmp/baselibs_new.conf || true
-shellquote "arch i486 targets mipsel:inject" >> /tmp/baselibs_new.conf
-shellquote "%{name}" >> /tmp/baselibs_new.conf
-shellquote "  targettype x86 block!" >> /tmp/baselibs_new.conf
-shellquote "  targettype 32bit block!" >> /tmp/baselibs_new.conf
-shellquote "  targettype inject autoreqprov off" >> /tmp/baselibs_new.conf
-shellquote "  targettype inject extension -inject" >> /tmp/baselibs_new.conf
-shellquote "  targettype inject +/" >> /tmp/baselibs_new.conf
-shellquote "  targettype inject -%{_mandir}" >> /tmp/baselibs_new.conf
-shellquote "  targettype inject -%{_docdir}" >> /tmp/baselibs_new.conf
-shellquote "  targettype inject config    -/sb2-config$" >> /tmp/baselibs_new.conf
-
-shellquote "arch i486 targets mipsel:inject" >> /tmp/baselibs_new.conf
-shellquote "%{name}-dependency" >> /tmp/baselibs_new.conf
-shellquote "  targettype x86 block!" >> /tmp/baselibs_new.conf
-shellquote "  targettype 32bit block!" >> /tmp/baselibs_new.conf
-shellquote "  targettype inject autoreqprov off" >> /tmp/baselibs_new.conf
-shellquote "  targettype inject extension -inject" >> /tmp/baselibs_new.conf
-shellquote "  targettype inject +/" >> /tmp/baselibs_new.conf
-shellquote "  targettype inject -%{_mandir}" >> /tmp/baselibs_new.conf
-shellquote "  targettype inject -%{_docdir}" >> /tmp/baselibs_new.conf
-shellquote "  targettype inject config    -/sb2-config$" >> /tmp/baselibs_new.conf
-
-cat /tmp/baselibs_new.conf > %{_sourcedir}/baselibs.conf
 touch %buildroot/etc/sb2-tools-template
 
 %clean
@@ -129,6 +89,6 @@ rm -rf $RPM_BUILD_ROOT
 %verify(not md5 size mtime) %attr(0400,root,root) %config(noreplace) /etc/shadow
 %verify(not md5 size mtime) %attr(0400,root,root) %config(noreplace) /etc/gshadow
 
-%files dependency
+%files -n sb2-tools-mipsel-dependency-inject
 %defattr(-,root,root)
 /etc/sb2-tools-template
