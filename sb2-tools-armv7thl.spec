@@ -76,6 +76,11 @@ mkdir -p %buildroot/etc/
 touch %buildroot/etc/securetty
 mkdir -p %buildroot/var/cache/ldconfig/
 mkdir -p %buildroot/var/lock/subsys
+#overwite hosts file to avoid getting a random hostname
+cat > %{buildroot}/etc/hosts << EOF
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+EOF
 touch %buildroot/etc/sb2-tools-template
 
 %clean
