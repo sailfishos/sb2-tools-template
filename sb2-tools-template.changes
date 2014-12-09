@@ -1,3 +1,6 @@
+* Wed Dec 10 2014 Islam Amer <islam.amer@jolla.com> - 1.0
+- Overwrite the hosts file to avoid getting a random hostname
+
 * Mon Aug 25 2014 Islam Amer <islam.amer@jolla.com> - 1.0
 - New util-linux splits off libmount and libsmartcols so add them explicitly
 
