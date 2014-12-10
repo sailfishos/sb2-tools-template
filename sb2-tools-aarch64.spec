@@ -41,6 +41,8 @@ It is not intended to be used in a normal system!
 #set +x -e
 mkdir -p %buildroot
 rpm -ql %packages_in_tools %cross_compilers > filestoinclude1
+#/var/log contains lots of random data we don't need
+sed -i -e '/\/var\/log/d' filestoinclude1
 cat > filestoignore << EOF
 /etc/shadow
 /etc/gshadow
@@ -57,8 +59,6 @@ cat > filestoignore << EOF
 /usr/sbin/tzdata-update
 /etc/security/opasswd
 /sbin/unix_update
-/var/log/faillog
-/var/log/tallylog
 /var/lock
 /var/lock/subsys
 EOF
@@ -69,7 +69,7 @@ sed 's|:.*$|:*:16229:0:99999:7:::|' < /etc/passwd > %{buildroot}/etc/shadow
 sed 's|:.*$|:*::|' < /etc/group > %{buildroot}/etc/gshadow
 chmod 0400 %buildroot/etc/shadow
 chmod 0400 %buildroot/etc/gshadow
-
+mkdir -p %buildroot/var/log
 mkdir -p %buildroot/root/
 mkdir -p %buildroot/var/lib/rpm/
 mkdir -p %buildroot/etc/
@@ -128,6 +128,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f filestoinclude2
 %defattr(-,root,root)
+%dir /var/log
 %dir /root/
 %dir /var/lib/rpm/
 %dir /var/cache/ldconfig/
