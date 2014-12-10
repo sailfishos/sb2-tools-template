@@ -1,5 +1,6 @@
 * Wed Dec 10 2014 Islam Amer <islam.amer@jolla.com> - 1.0
 - Overwrite the hosts file to avoid getting a random hostname
+- Create empty /var/log instead of getting random files from worker
 
 * Sun Dec 07 2014 Carsten Munk <carsten.munk@jolla.com> - 1.0
 - Support spaces and include stuff for new util-linux
