@@ -46,6 +46,7 @@ sed -i -e '/\/var\/log/d' filestoinclude1
 cat > filestoignore << EOF
 /etc/shadow
 /etc/gshadow
+/etc/mtab
 /usr/share/man
 /root
 /var/lib/rpm
