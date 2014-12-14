@@ -1,3 +1,6 @@
+* Sun Dec 14 2014 Islam Amer <islam.amer@jolla.com> - 1.0
+- remove deprecated icu
+
 * Wed Dec 10 2014 Islam Amer <islam.amer@jolla.com> - 1.0
 - Overwrite the hosts file to avoid getting a random hostname
 - Create empty /var/log instead of getting random files from worker
