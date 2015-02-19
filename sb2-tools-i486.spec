@@ -13,6 +13,9 @@ BuildRequires: rpm grep tar patchelf sed
 BuildRequires: %packages_in_tools
 BuildRequires: %cross_compilers
 ExclusiveArch: %{ix86}
+Source100: sb2-tools-i486-rpmlintrc
+Source101: baselibs.conf
+Source102: precheckin.sh
 
 # no auto requirements - they're generated
 License:       BSD

@@ -13,6 +13,9 @@ BuildRequires: rpm grep tar patchelf sed
 BuildRequires: %packages_in_tools
 BuildRequires: %cross_compilers
 ExclusiveArch: nothing
+Source100: sb2-tools-@ARCH@-rpmlintrc
+Source101: baselibs.conf
+Source102: precheckin.sh
 
 # no auto requirements - they're generated
 License:       BSD
