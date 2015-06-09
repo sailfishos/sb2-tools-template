@@ -9,6 +9,18 @@
 - Create empty /var/log instead of getting random files from worker
 - Exclude /etc/mtab as it can cause randomness 
 
+* Sun Dec 07 2014 Carsten Munk <carsten.munk@jolla.com> - 1.0
+- Support spaces and include stuff for new util-linux
+
+* Thu Oct 09 2014 Carsten Munk <carsten.munk@jolla.com> - 1.0
+- Add libicu
+
+* Wed Oct 08 2014 Carsten Munk <carsten.munk@jolla.com> - 1.0
+- Add qt5-qtcore and qt5-qtxml
+
+* Fri Sep 05 2014 Munk <carsten.munk@jolla.com> - 1.0
+- Remove qt4
+
 * Mon Aug 25 2014 Islam Amer <islam.amer@jolla.com> - 1.0
 - New util-linux splits off libmount and libsmartcols so add them explicitly
 
