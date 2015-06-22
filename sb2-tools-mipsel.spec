@@ -4,7 +4,7 @@
 %define _target_cpu mipsel
 
 Name:          sb2-tools-mipsel-inject
-Version:       1.0
+Version:       1.0+git1
 Release:       1
 AutoReqProv:   0
 BuildRequires: rpm grep tar patchelf sed

@@ -4,7 +4,7 @@
 %define _target_cpu armv7thl
 
 Name:          sb2-tools-armv7thl-inject
-Version:       1.0
+Version:       1.0+git1
 Release:       1
 AutoReqProv:   0
 BuildRequires: rpm grep tar patchelf sed

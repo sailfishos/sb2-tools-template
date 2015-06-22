@@ -4,7 +4,7 @@
 %define _target_cpu i486
 
 Name:          sb2-tools-i486-inject
-Version:       1.0
+Version:       1.0+git1
 Release:       1
 AutoReqProv:   0
 BuildRequires: rpm grep tar patchelf sed

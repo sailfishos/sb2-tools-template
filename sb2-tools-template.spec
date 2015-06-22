@@ -4,7 +4,7 @@
 %define _target_cpu @ARCH@
 
 Name:          sb2-tools-@ARCH@-inject
-Version:       1.0
+Version:       1.0+git1
 Release:       1
 AutoReqProv:   0
 BuildRequires: rpm grep tar patchelf sed

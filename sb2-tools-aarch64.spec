@@ -4,7 +4,7 @@
 %define _target_cpu aarch64
 
 Name:          sb2-tools-aarch64-inject
-Version:       1.0
+Version:       1.0+git1
 Release:       1
 AutoReqProv:   0
 BuildRequires: rpm grep tar patchelf sed

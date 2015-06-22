@@ -4,7 +4,7 @@
 %define _target_cpu armv6l
 
 Name:          sb2-tools-armv6l-inject
-Version:       1.0
+Version:       1.0+git1
 Release:       1
 AutoReqProv:   0
 BuildRequires: rpm grep tar patchelf sed
