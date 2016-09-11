@@ -64,7 +64,9 @@ cat > filestoignore << EOF
 /var/lock/subsys
 EOF
 grep -vf filestoignore filestoinclude1 | sort | uniq > filestoinclude2
+# Copy files to buildroot and preserve permissions.
 tar --no-recursion -T filestoinclude2 -cpf - | ( cd %buildroot && fakeroot tar -xvpf - )
+# Add quotas around the lines as filenames contain spaces.
 sed -i "s/^\(.*\)$/\"\1\"/g" filestoinclude2
 cat filestoinclude2
 sed 's|:.*$|:*:16229:0:99999:7:::|' < /etc/passwd > %{buildroot}/etc/shadow
