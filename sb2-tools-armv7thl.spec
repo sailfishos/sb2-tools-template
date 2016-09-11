@@ -4,16 +4,34 @@
 %define _target_cpu armv7thl
 
 Name:          sb2-tools-armv7thl-inject
-Version:       1.0+git1
+Version:       1.0+git2
 Release:       1
 AutoReqProv:   0
 BuildRequires: rpm grep tar patchelf sed
 BuildRequires: %packages_in_tools
 BuildRequires: %cross_compilers
-
-Source100: sb2-tools-armv7thl-rpmlintrc
+# We should build only on i586/i486 these packages, however
+# ExclusiveArch: or ExcludeArch: do not work here, because after OBS starts building
+# we set the _target_cpu above to e.g. armv7hl and then rpm declines to build the package.
 Source101: precheckin.sh
-
+Source200: sb2-tools-template-rpmlintrc
+Source201: sb2-tools-template.spec 
+Source202: sb2-tools-armv6l-rpmlintrc
+Source203: sb2-tools-armv6l.spec 
+Source204: sb2-tools-armv7l-rpmlintrc
+Source205: sb2-tools-armv7l.spec 
+Source206: sb2-tools-armv7hl-rpmlintrc
+Source207: sb2-tools-armv7hl.spec 
+Source208: sb2-tools-armv7thl-rpmlintrc
+ 
+Source210: sb2-tools-armv7tnhl-rpmlintrc
+Source211: sb2-tools-armv7tnhl.spec 
+Source212: sb2-tools-mipsel-rpmlintrc
+Source213: sb2-tools-mipsel.spec 
+Source214: sb2-tools-aarch64-rpmlintrc
+Source215: sb2-tools-aarch64.spec 
+Source216: sb2-tools-i486-rpmlintrc
+Source217: sb2-tools-i486.spec 
 # no auto requirements - they're generated
 License:       BSD
 Group:         Development/Tools
