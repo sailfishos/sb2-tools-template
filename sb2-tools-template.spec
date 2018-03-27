@@ -5,7 +5,7 @@
 %global __os_install_post %{nil}
 
 Name:          sb2-tools-@ARCH@-inject
-Version:       1.0+git3
+Version:       1.0+git4
 Release:       1
 AutoReqProv:   0
 BuildRequires: rpm grep tar patchelf sed
@@ -51,7 +51,6 @@ cat > filestoignore << EOF
 /etc/mtab
 /usr/share/man
 /root
-/var/lib/rpm
 /usr/bin/chfn
 /usr/bin/chsh
 /etc/securetty
@@ -87,7 +86,6 @@ chmod 0400 %buildroot/etc/shadow
 chmod 0400 %buildroot/etc/gshadow
 mkdir -p %buildroot/var/log
 mkdir -p %buildroot/root/
-mkdir -p %buildroot/var/lib/rpm/
 mkdir -p %buildroot/etc/
 touch %buildroot/etc/securetty
 mkdir -p %buildroot/var/cache/ldconfig/
@@ -106,7 +104,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 %dir /var/log
 %dir /root/
-%dir /var/lib/rpm/
 %dir /var/cache/ldconfig/
 /etc/securetty
 %verify(not md5 size mtime) %attr(0400,root,root) %config(noreplace) /etc/shadow

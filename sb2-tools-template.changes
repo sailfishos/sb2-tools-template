@@ -1,3 +1,6 @@
+* Tue Mar 27 2018 Martin Kampas <martin.kampas@jolla.com> - 1.0+git4
+- Do not exclude RPM database. Contributes to JB#36069
+
 * Wed Sep 14 2016 Matti Kosola <matti.kosola@jolla.com> - 1.0+git3
 - Still some changes to get promotions work. Contributes to JB#36248
 
