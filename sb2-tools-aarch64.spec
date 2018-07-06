@@ -1,10 +1,11 @@
-%define __strip /bin/true
-%define packages_in_tools  fakeroot bash bzip2 bzip2-libs coreutils db4 diffutils elfutils elfutils-libs elfutils-libelf fdupes file-libs filesystem glibc glibc-common groff libacl libattr libcap libgcc liblua libstdc++ ncurses-libs nspr nss nss-softokn-freebl pam popt readline rpm rpm rpm-build rpm-build rpm-devel rpm-libs rpm-libs sed setup sqlite tar xz-libs zlib perl perl-threads perl-threads-shared perl-Scalar-List-Utils perl-libs util-linux libblkid libuuid grep pcre scratchbox2 libsb2 gawk glib2 file net-tools glibc-devel gcc libgomp glibc-headers kernel-headers binutils cpp mpc mpfr gmp findutils cpio rpmlint-mini make m4 gzip libcap openssl-libs qemu-usermode autoconf automake ccache python python-libs zip xz doxygen fontconfig freetype expat cmake libarchive libcurl libxml2 libidn libicu52 libmount libsmartcols%define cross_compilers   cross-aarch64-gcc cross-aarch64-binutils 
-%global _python_bytecompile_errors_terminate_build 0
+%define packages_in_tools autoconf automake bash binutils bzip2 bzip2-libs ccache cmake coreutils cpio cpp db4 diffutils doxygen elfutils elfutils-libelf elfutils-libs expat fakeroot fdupes file file-libs filesystem findutils fontconfig freetype gawk gcc glib2 glibc glibc-common glibc-devel glibc-headers gmp grep groff gzip kernel-headers libacl libarchive libattr libblkid libcap libcap libcurl libgcc libgomp libicu52 libidn liblua libmount libsb2 libsmartcols libstdc++ libuuid libxml2 m4 make mpc mpfr ncurses-libs net-tools nspr nss nss-softokn-freebl openssl-libs pam pcre perl perl-libs perl-Scalar-List-Utils perl-threads perl-threads-shared popt python python-libs qemu-usermode readline rpm rpm-build rpm-devel rpm-libs rpmlint-mini scratchbox2 sed setup sqlite tar util-linux xz xz-libs zip zlib
+%define cross_compilers   cross-aarch64-gcc cross-aarch64-binutils
 %define _target_cpu aarch64
+# Prevent stripping, python-bytecompiling etc. as this has been already done for the packages
+%global __os_install_post %{nil}
 
 Name:          sb2-tools-aarch64-inject
-Version:       1.0+git3
+Version:       1.0+git4
 Release:       1
 AutoReqProv:   0
 BuildRequires: rpm grep tar patchelf sed
@@ -50,7 +51,6 @@ cat > filestoignore << EOF
 /etc/mtab
 /usr/share/man
 /root
-/var/lib/rpm
 /usr/bin/chfn
 /usr/bin/chsh
 /etc/securetty
@@ -66,17 +66,26 @@ cat > filestoignore << EOF
 EOF
 grep -vf filestoignore filestoinclude1 | sort | uniq > filestoinclude2
 # Copy files to buildroot and preserve permissions.
-tar --no-recursion -T filestoinclude2 -cpf - | ( cd %buildroot && fakeroot tar -xvpf - )
-# Add quotas around the lines as filenames contain spaces.
-sed -i "s/^\(.*\)$/\"\1\"/g" filestoinclude2
-cat filestoinclude2
+tar --no-recursion -T filestoinclude2 -cpf - | ( cd %buildroot && fakeroot tar -xvpf - ) > filesincluded
+# Add back "/" prefix, add double quotes to protect file names with spaces, use %%dir directive for
+# directories to prevent "File listed twice" warnings.
+sed -i filesincluded -e '
+    # First line is special - it is the root directory
+    1s,^\./$,%%dir /,
+    t
+    # Lines ending with / are special - they are directory paths
+    s,^\(.*\)/$,%%dir "/\1",
+    t
+    # Everything else
+    s,^.*$,"/&",
+    '
+cat filesincluded
 sed 's|:.*$|:*:16229:0:99999:7:::|' < /etc/passwd > %{buildroot}/etc/shadow
 sed 's|:.*$|:*::|' < /etc/group > %{buildroot}/etc/gshadow
 chmod 0400 %buildroot/etc/shadow
 chmod 0400 %buildroot/etc/gshadow
 mkdir -p %buildroot/var/log
 mkdir -p %buildroot/root/
-mkdir -p %buildroot/var/lib/rpm/
 mkdir -p %buildroot/etc/
 touch %buildroot/etc/securetty
 mkdir -p %buildroot/var/cache/ldconfig/
@@ -91,11 +100,10 @@ touch %buildroot/etc/sb2-tools-template
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files -f filestoinclude2
+%files -f filesincluded
 %defattr(-,root,root)
 %dir /var/log
 %dir /root/
-%dir /var/lib/rpm/
 %dir /var/cache/ldconfig/
 /etc/securetty
 %verify(not md5 size mtime) %attr(0400,root,root) %config(noreplace) /etc/shadow
