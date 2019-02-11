@@ -1,3 +1,6 @@
+* Mon Feb 11 2019 Niels Breet <niels.breet@jolla.com> - 1.0+git6
+- Add nss-pem to tools to fix rpm. Contributes JB#44727
+
 * Thu Jan 31 2019 Marko Saukko <marko.saukko@jolla.com> - 1.0+git5
 - Change sqlite to sqlite-libs. Contributes to JB#44455
 
