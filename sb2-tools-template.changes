@@ -1,3 +1,6 @@
+* Tue Mar 12 2019 Andrew Branson <andrew.branson@jolla.com> - 1.0+git7
+- Switch icu52 back to icu. JB#36024
+
 * Mon Feb 11 2019 Niels Breet <niels.breet@jolla.com> - 1.0+git6
 - Add nss-pem to tools to fix rpm. Contributes JB#44727
 

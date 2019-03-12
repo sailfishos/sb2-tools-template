@@ -1,11 +1,11 @@
-%define packages_in_tools autoconf automake bash binutils bzip2 bzip2-libs ccache cmake coreutils cpio cpp db4 diffutils doxygen elfutils elfutils-libelf elfutils-libs expat fakeroot fdupes file file-libs filesystem findutils fontconfig freetype gawk gcc glib2 glibc glibc-common glibc-devel glibc-headers gmp grep groff gzip kernel-headers libacl libarchive libattr libblkid libcap libcap libcurl libgcc libgomp libicu52 libidn liblua libmount libsb2 libsmartcols libstdc++ libuuid libxml2 m4 make mpc mpfr ncurses-libs net-tools nspr nss nss-pem nss-softokn-freebl openssl-libs pam pcre perl perl-libs perl-Scalar-List-Utils perl-threads perl-threads-shared popt python python-libs qemu-usermode readline rpm rpm-build rpm-devel rpm-libs rpmlint-mini scratchbox2 sed setup sqlite-libs tar util-linux xz xz-libs zip zlib
+%define packages_in_tools autoconf automake bash binutils bzip2 bzip2-libs ccache cmake coreutils cpio cpp db4 diffutils doxygen elfutils elfutils-libelf elfutils-libs expat fakeroot fdupes file file-libs filesystem findutils fontconfig freetype gawk gcc glib2 glibc glibc-common glibc-devel glibc-headers gmp grep groff gzip kernel-headers libacl libarchive libattr libblkid libcap libcap libcurl libgcc libgomp libicu libidn liblua libmount libsb2 libsmartcols libstdc++ libuuid libxml2 m4 make mpc mpfr ncurses-libs net-tools nspr nss nss-pem nss-softokn-freebl openssl-libs pam pcre perl perl-libs perl-Scalar-List-Utils perl-threads perl-threads-shared popt python python-libs qemu-usermode readline rpm rpm-build rpm-devel rpm-libs rpmlint-mini scratchbox2 sed setup sqlite-libs tar util-linux xz xz-libs zip zlib
 %define cross_compilers   cross-aarch64-gcc cross-aarch64-binutils
 %define _target_cpu aarch64
 # Prevent stripping, python-bytecompiling etc. as this has been already done for the packages
 %global __os_install_post %{nil}
 
 Name:          sb2-tools-aarch64-inject
-Version:       1.0+git6
+Version:       1.0+git7
 Release:       1
 AutoReqProv:   0
 BuildRequires: rpm grep tar patchelf sed
