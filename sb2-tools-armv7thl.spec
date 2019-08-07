@@ -5,7 +5,7 @@
 %global __os_install_post %{nil}
 
 Name:          sb2-tools-armv7thl-inject
-Version:       1.0+git7
+Version:       1.0+git8
 Release:       1
 AutoReqProv:   0
 BuildRequires: rpm grep tar patchelf sed

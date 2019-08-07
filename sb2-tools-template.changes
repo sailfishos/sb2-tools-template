@@ -1,3 +1,6 @@
+* Wed Aug 07 2019 Niels Breet <niels.breet@jolla.com> - 1.0+git8
+- Remove groff from list of packages. Contributes to JB#46708
+
 * Tue Mar 12 2019 Andrew Branson <andrew.branson@jolla.com> - 1.0+git7
 - Switch icu52 back to icu. JB#36024
 
