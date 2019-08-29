@@ -1,11 +1,14 @@
-%define packages_in_tools autoconf automake bash binutils busybox busybox-symlinks-which bzip2 bzip2-libs ccache cmake coreutils cpio cpp db4 diffutils doxygen elfutils elfutils-libelf elfutils-libs expat fakeroot fdupes file file-libs filesystem findutils fontconfig freetype gawk gcc glib2 glibc glibc-common glibc-devel glibc-headers gmp grep gzip kernel-headers libacl libarchive libattr libblkid libcap libcap libcurl libgcc libgomp libicu libidn liblua libmount libsb2 libsmartcols libstdc++ libuuid libxml2 m4 make mpc mpfr ncurses-libs net-tools nspr nss nss-pem nss-softokn-freebl openssl-libs pam pcre perl perl-libs perl-Scalar-List-Utils perl-threads perl-threads-shared popt python python-libs qemu-usermode readline rpm rpm-build rpm-devel rpm-libs rpmlint-mini scratchbox2 sed setup sqlite-libs tar util-linux xz xz-libs zip zlib
+# busybox is included because busybox-symlinks-which needs it
+# busybox-symlinks-which provides which
+# libselinux is needed by busybox
+%define packages_in_tools autoconf automake bash binutils busybox busybox-symlinks-which bzip2 bzip2-libs ccache cmake coreutils cpio cpp db4 diffutils doxygen elfutils elfutils-libelf elfutils-libs expat fakeroot fdupes file file-libs filesystem findutils fontconfig freetype gawk gcc glib2 glibc glibc-common glibc-devel glibc-headers gmp grep gzip kernel-headers libacl libarchive libattr libblkid libcap libcap libcurl libgcc libgomp libicu libidn liblua libmount libsb2 libselinux libsmartcols libstdc++ libuuid libxml2 m4 make mpc mpfr ncurses-libs net-tools nspr nss nss-pem nss-softokn-freebl openssl-libs pam pcre perl perl-libs perl-Scalar-List-Utils perl-threads perl-threads-shared popt python python-libs qemu-usermode readline rpm rpm-build rpm-devel rpm-libs rpmlint-mini scratchbox2 sed setup sqlite-libs tar util-linux xz xz-libs zip zlib
 %define cross_compilers   cross-armv7l-gcc cross-armv7l-binutils
 %define _target_cpu armv7l
 # Prevent stripping, python-bytecompiling etc. as this has been already done for the packages
 %global __os_install_post %{nil}
 
 Name:          sb2-tools-armv7l-inject
-Version:       1.0+git9
+Version:       1.0+git10
 Release:       1
 AutoReqProv:   0
 BuildRequires: rpm grep tar patchelf sed
