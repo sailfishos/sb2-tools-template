@@ -1,3 +1,7 @@
+* Wed Jan 22 2020 David Greaves <david.greaves@jolla.com> - 1.0+git11
+- Support the /usr merge. Contributes to JB#36606
+- Remove rpmlint-mini
+
 * Thu Aug 29 2019 Tomi Leppänen <tomi.leppanen@jolla.com> - 1.0+git10
 - Add libselinux. Contributes to JB#46939
 
