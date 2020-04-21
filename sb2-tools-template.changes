@@ -1,3 +1,6 @@
+* Thu Apr 16 2020 Matti Kosola <matti.kosola@jolla.com> - 1.0+git12
+- Drop python2 packages and add python3. JB#45854
+
 * Mon Feb 10 2020 Tomi Leppänen <tomi.leppanen@jolla.com> - 1.0+git11
 - Change coreutils to gnu-coreutils. Contributes to JB#26141
 
