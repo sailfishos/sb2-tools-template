@@ -1,3 +1,6 @@
+* Tue Jun 23 2020 Matti Kosola <matti.kosola@jolla.com> - 1.0+git15
+- Add llvm to speed up cross building. JB#50106
+
 * Tue Jun 16 2020 Matti Kosola <matti.kosola@jolla.com> - 1.0+git14
 - Add libnghttp2 for libcurl. JB#50106
 
