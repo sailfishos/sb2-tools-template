@@ -1,3 +1,6 @@
+* Mon Aug 31 2020 Matti Kosola <matti.kosola@jolla.com> - 1.0+git17
+- Change gzip to gnu-gzip. JB#49337
+
 * Tue Aug 25 2020 Tomi Leppänen <tomi.leppanen@jolla.com> - 1.0+git16
 - Change bash to gnu-bash. Contributes to JB#39735
 
