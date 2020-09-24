@@ -1,3 +1,9 @@
+* Wed Sep 23 2020 Matti Kosola <matti.kosola@jolla.com> - 1.0+git18
+- Change tar to gnu-tar. JB#49333
+- Change diffutils to gnu-diffutils. JB#49334
+- Change findutils to gnu-findutils. JB#49335
+- Change grep to gnu-grep. JB#49336
+
 * Mon Aug 31 2020 Matti Kosola <matti.kosola@jolla.com> - 1.0+git17
 - Change gzip to gnu-gzip. JB#49337
 
