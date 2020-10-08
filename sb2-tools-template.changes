@@ -1,3 +1,6 @@
+* Mon Sep 28 2020 Matti Kosola <matti.kosola@jolla.com> - 1.0+git19
+- Change sed to gnu-sed. JB#48742
+
 * Wed Sep 23 2020 Matti Kosola <matti.kosola@jolla.com> - 1.0+git18
 - Change tar to gnu-tar. JB#49333
 - Change diffutils to gnu-diffutils. JB#49334

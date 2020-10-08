@@ -1,14 +1,14 @@
 # busybox is included because busybox-symlinks-which needs it
 # busybox-symlinks-which provides which
 # libselinux is needed by busybox
-%define packages_in_tools autoconf automake gnu-bash binutils busybox busybox-symlinks-which bzip2 bzip2-libs ccache cmake cpio cpp db4 gnu-diffutils doxygen elfutils elfutils-libelf elfutils-libs expat fakeroot fdupes file file-libs filesystem gnu-findutils fontconfig freetype gawk gcc glib2 glibc glibc-common glibc-devel glibc-headers gmp gnu-coreutils gnu-grep gnu-gzip kernel-headers libacl libarchive libattr libblkid libcap libcap libcurl libgcc libgomp libicu libidn liblua libmount libnghttp2 libpsl libsb2 libselinux libsmartcols libstdc++ libuuid libxml2 llvm m4 make mpc mpfr ncurses-libs net-tools nspr nss nss-pem nss-softokn-freebl openssl-libs pam pcre perl perl-libs perl-Scalar-List-Utils perl-threads perl-threads-shared popt python3-base python3-libs python3-setuptools python3-rpm-generators qemu-usermode readline rpm rpm-build rpm-devel rpm-libs rpmlint-mini scratchbox2 sed setup sqlite-libs gnu-tar util-linux xz xz-libs zip zlib
+%define packages_in_tools autoconf automake gnu-bash binutils busybox busybox-symlinks-which bzip2 bzip2-libs ccache cmake cpio cpp db4 gnu-diffutils doxygen elfutils elfutils-libelf elfutils-libs expat fakeroot fdupes file file-libs filesystem gnu-findutils fontconfig freetype gawk gcc glib2 glibc glibc-common glibc-devel glibc-headers gmp gnu-coreutils gnu-grep gnu-gzip kernel-headers libacl libarchive libattr libblkid libcap libcap libcurl libgcc libgomp libicu libidn liblua libmount libnghttp2 libpsl libsb2 libselinux libsmartcols libstdc++ libuuid libxml2 llvm m4 make mpc mpfr ncurses-libs net-tools nspr nss nss-pem nss-softokn-freebl openssl-libs pam pcre perl perl-libs perl-Scalar-List-Utils perl-threads perl-threads-shared popt python3-base python3-libs python3-setuptools python3-rpm-generators qemu-usermode readline rpm rpm-build rpm-devel rpm-libs rpmlint-mini scratchbox2 gnu-sed setup sqlite-libs gnu-tar util-linux xz xz-libs zip zlib
 %define cross_compilers   cross-armv7hl-gcc cross-armv7hl-binutils
 %define _target_cpu armv7hl
 # Prevent stripping, python-bytecompiling etc. as this has been already done for the packages
 %global __os_install_post %{nil}
 
 Name:          sb2-tools-armv7hl-inject
-Version:       1.0+git18
+Version:       1.0+git19
 Release:       1
 AutoReqProv:   0
 BuildRequires: rpm grep tar patchelf sed
