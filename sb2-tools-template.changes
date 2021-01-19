@@ -1,3 +1,6 @@
+* Tue Jan 19 2021 Matti Kosola <matti.kosola@jolla.com> - 1.0+git20
+- Remove libidn. JB#36422
+
 * Mon Sep 28 2020 Matti Kosola <matti.kosola@jolla.com> - 1.0+git19
 - Change sed to gnu-sed. JB#48742
 
