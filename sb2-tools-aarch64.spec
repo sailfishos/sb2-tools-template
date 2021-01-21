@@ -1,14 +1,14 @@
 # busybox is included because busybox-symlinks-which needs it
 # busybox-symlinks-which provides which
 # libselinux is needed by busybox
-%define packages_in_tools autoconf automake gnu-bash binutils busybox busybox-symlinks-which bzip2 bzip2-libs ccache cmake cpio cpp db4 gnu-diffutils doxygen elfutils elfutils-libelf elfutils-libs expat fakeroot fdupes file file-libs filesystem gnu-findutils fontconfig freetype gawk gcc glib2 glibc glibc-common glibc-devel glibc-headers gmp gnu-coreutils gnu-grep gnu-gzip kernel-headers libacl libarchive libattr libblkid libcap libcap libcurl libgcc libgomp libicu liblua libmount libnghttp2 libpsl libsb2 libselinux libsmartcols libstdc++ libuuid libxml2 llvm m4 make mpc mpfr ncurses-libs net-tools nspr nss nss-pem nss-softokn-freebl openssl-libs pam pcre perl perl-libs perl-Scalar-List-Utils perl-threads perl-threads-shared popt python3-base python3-libs python3-setuptools python3-rpm-generators qemu-usermode readline rpm rpm-build rpm-devel rpm-libs rpmlint-mini scratchbox2 gnu-sed setup sqlite-libs gnu-tar util-linux xz xz-libs zip zlib
+%define packages_in_tools autoconf automake gnu-bash binutils busybox busybox-symlinks-which bzip2 bzip2-libs cargo ccache cmake cpio cpp db4 gnu-diffutils doxygen elfutils elfutils-libelf elfutils-libs expat fakeroot fdupes file file-libs filesystem gnu-findutils fontconfig freetype gawk gcc glib2 glibc glibc-common glibc-devel glibc-headers gmp gnu-coreutils gnu-grep gnu-gzip kernel-headers libacl libarchive libattr libblkid libcap libcap libcurl libgcc libgomp libicu liblua libmount libnghttp2 libpsl libsb2 libselinux libsmartcols libstdc++ libuuid libxml2 llvm m4 make mpc mpfr ncurses-libs net-tools nspr nss nss-pem nss-softokn-freebl openssl-libs pam pcre perl perl-libs perl-Scalar-List-Utils perl-threads perl-threads-shared popt python3-base python3-libs python3-setuptools python3-rpm-generators qemu-usermode readline rpm rpm-build rpm-devel rpm-libs rpmlint-mini rust scratchbox2 gnu-sed setup sqlite-libs gnu-tar util-linux xz xz-libs zip zlib
 %define cross_compilers   cross-aarch64-gcc cross-aarch64-binutils
 %define _target_cpu aarch64
 # Prevent stripping, python-bytecompiling etc. as this has been already done for the packages
 %global __os_install_post %{nil}
 
 Name:          sb2-tools-aarch64-inject
-Version:       1.0+git20
+Version:       1.0+git21
 Release:       1
 AutoReqProv:   0
 BuildRequires: rpm grep tar patchelf sed
@@ -68,6 +68,28 @@ EOF
 grep -vf filestoignore filestoinclude1 | sort | uniq > filestoinclude2
 # Copy files to buildroot and preserve permissions.
 tar --no-recursion -T filestoinclude2 -cpf - | ( cd %buildroot && fakeroot tar -xvpf - ) > filesincluded
+
+# Rust is special. It executes cc in host-cc mode which is SBOX_DISABLE_MAPPING=1
+# This means it cannot see the rustlib in the target. Instead of adding rust-std-static
+# to sb2-tools-template we symlink to the target
+# We need to move the existing content first
+echo files in %buildroot/usr/lib/rustlib:
+find %buildroot/usr/lib/rustlib
+echo and in filelist:
+grep rustlib filesincluded
+
+mkdir -p %buildroot/target/usr/lib/
+echo moving /usr/lib/rustlib to /target
+mv %buildroot/usr/lib/rustlib %buildroot/target/usr/lib/
+sed -i filesincluded -e 's,usr/lib/rustlib,target/usr/lib/rustlib,'
+ln -s /target/usr/lib/rustlib  %buildroot/usr/lib/
+echo /usr/lib/rustlib >> filesincluded
+
+echo files in %buildroot/target:
+find %buildroot/target
+echo now in filelist:
+grep rustlib filesincluded
+
 # Add back "/" prefix, add double quotes to protect file names with spaces, use %%dir directive for
 # directories to prevent "File listed twice" warnings.
 sed -i filesincluded -e '
