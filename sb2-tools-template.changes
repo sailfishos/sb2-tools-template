@@ -1,3 +1,6 @@
+* Thu Jan 28 2021 Matti Kosola <matti.kosola@jolla.com> - 1.0+git22
+- Drop llvm from tools. JB#51574
+
 * Thu Jan 21 2021 David Greaves <david.greaves@jolla.com> - 1.0+git21
 - Add cargo and rust and support for target rustlibs. JB#36422
 - remove unused architectres
