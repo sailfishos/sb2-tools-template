@@ -1,3 +1,6 @@
+* Fri Jan 29 2021 Matti Kosola <matti.kosola@jolla.com> - 1.0+git23
+- Add llvm-libs for rust. JB#51574
+
 * Thu Jan 28 2021 Matti Kosola <matti.kosola@jolla.com> - 1.0+git22
 - Drop llvm from tools. JB#51574
 
