@@ -1,5 +1,8 @@
+* Mon Feb 08 2021 David Greaves <david.greaves@jolla.com> - 1.0+git24
+- Move cargo and rust to sb2-rust. JB#52949
+
 * Thu Jan 21 2021 David Greaves <david.greaves@jolla.com> - 1.0+git21
-- Add cargo and rust and support for target rustlibs. JB#36422
+- Add cargo and rust and support for target rustlibs. JB#50499
 - remove unused architectres
 
 * Tue Jan 19 2021 Matti Kosola <matti.kosola@jolla.com> - 1.0+git20
