@@ -1,3 +1,6 @@
+* Wed Jun 16 2021 Niels Breet <niels.breet@jolla.com> - 1.0+git24
+- Add rpm-sign JB#52914
+
 * Fri Jan 29 2021 Matti Kosola <matti.kosola@jolla.com> - 1.0+git23
 - Add llvm-libs for rust. JB#51574
 
