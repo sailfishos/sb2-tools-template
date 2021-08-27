@@ -1,3 +1,6 @@
+* Wed Aug 11 2021 Niels Breet <niels.breet@jolla.com> - 1.0+git25
+- Add clang, clang-libs, gcc-c++ and libstdc++-devel JB#55042
+
 * Wed Jun 16 2021 Niels Breet <niels.breet@jolla.com> - 1.0+git24
 - Add rpm-sign JB#52914
 
