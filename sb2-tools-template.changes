@@ -1,3 +1,6 @@
+* Fri Oct 08 2021 Björn Bidar <bjorn.bidar@jolla.com> - 1.0+git27
+- Add libxcrypt. JB#54931
+
 * Wed Oct 06 2021 Björn Bidar <bjorn.bidar@jolla.com> - 1.0+git26
 - Add lua-posix. JB#55272
 
