@@ -1,14 +1,11 @@
-# busybox is included because busybox-symlinks-which needs it
-# busybox-symlinks-which provides which
-# libselinux is needed by busybox
-%define packages_in_tools autoconf automake gnu-bash binutils busybox busybox-symlinks-which bzip2 bzip2-libs cargo ccache clang clang-libs cmake cpio cpp db4 gnu-diffutils doxygen elfutils elfutils-libelf elfutils-libs expat fakeroot fdupes file file-libs filesystem gnu-findutils fontconfig freetype gawk gcc gcc-c++ glib2 glibc glibc-common glibc-devel glibc-headers gmp gnu-coreutils gnu-grep gnu-gzip kernel-headers libacl libarchive libattr libblkid libcap libcap libcurl libgcc libgomp libicu liblua lua-posix libmount libnghttp2 libpsl libsb2 libselinux libsmartcols libstdc++ libstdc++-devel libuuid libxml2 llvm-libs m4 make mpc mpfr ncurses-libs net-tools nspr nss nss-pem nss-softokn-freebl openssl-libs libxcrypt pam pcre perl perl-libs perl-Scalar-List-Utils perl-threads perl-threads-shared popt python3-base python3-libs python3-setuptools python3-rpm-generators qemu-usermode readline rpm rpm-build rpm-devel rpm-libs rpm-sign rpmlint-mini rust scratchbox2 gnu-sed setup sqlite-libs gnu-tar util-linux xz xz-libs zip zlib
+%define packages_in_tools autoconf automake gnu-bash binutils gnu-which bzip2 bzip2-libs cargo ccache clang clang-libs cmake cpio cpp db4 gnu-diffutils doxygen elfutils elfutils-libelf elfutils-libs expat fakeroot fdupes file file-libs filesystem gnu-findutils fontconfig freetype gawk gcc gcc-c++ glib2 glibc glibc-common glibc-devel glibc-headers gmp gnu-coreutils gnu-grep gnu-gzip kernel-headers libacl libarchive libattr libblkid libcap libcap libcurl libgcc libgomp libicu liblua lua-posix libmount libnghttp2 libpsl libsb2 libsmartcols libstdc++ libstdc++-devel libuuid libxml2 llvm-libs m4 make mpc mpfr ncurses-libs net-tools nspr nss nss-pem nss-softokn-freebl openssl-libs libxcrypt pam pcre perl perl-libs perl-Scalar-List-Utils perl-threads perl-threads-shared popt python3-base python3-libs python3-setuptools python3-rpm-generators qemu-usermode readline rpm rpm-build rpm-devel rpm-libs rpm-sign rpmlint-mini rust scratchbox2 gnu-sed setup sqlite-libs gnu-tar util-linux xz xz-libs zip zlib
 %define cross_compilers   cross-@ARCH@-gcc cross-@ARCH@-binutils
 %define _target_cpu @ARCH@
 # Prevent stripping, python-bytecompiling etc. as this has been already done for the packages
 %global __os_install_post %{nil}
 
 Name:          sb2-tools-@ARCH@-inject
-Version:       1.0+git27
+Version:       1.0+git28
 Release:       1
 AutoReqProv:   0
 BuildRequires: rpm grep tar patchelf sed
