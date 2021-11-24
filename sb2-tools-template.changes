@@ -1,3 +1,6 @@
+* Thu Nov 25 2021 Niels Breet <niels.breet@jolla.com> - 1.0+git29
+- Add zstd and libzstd now used by rpm. Contributes to JB#56418
+
 * Thu Nov 04 2021 Björn Bidar <bjorn.bidar@jolla.com> - 1.0+git28
 - Replace busybox-symlinks-which with which. JB#46906
 
