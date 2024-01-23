@@ -1,3 +1,6 @@
+* Tue Jan 23 2024 Matti Lehtimäki <matti.lehtimaki@jolla.com> - 1.0+git31
+- Replace kernel-headers with linux-glibc-devel in list of packages. JB#59595
+
 * Tue Jan 23 2024 Matti Lehtimäki <matti.lehtimaki@jolla.com> - 1.0+git30
 - Add pcre2 to list of packages. JB#61395
 
