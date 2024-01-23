@@ -1,3 +1,6 @@
+* Tue Jan 23 2024 Matti Lehtimäki <matti.lehtimaki@jolla.com> - 1.0+git30
+- Add pcre2 to list of packages. JB#61395
+
 * Thu Nov 25 2021 Niels Breet <niels.breet@jolla.com> - 1.0+git29
 - Add zstd and libzstd now used by rpm. Contributes to JB#56418
 
