@@ -1,3 +1,6 @@
+* Tue Jan 28 2025 Matti Lehtimäki <matti.lehtimaki@jolla.com> - 1.0+git32
+- Add x86_64 support. JB#63081
+
 * Tue Jan 23 2024 Matti Lehtimäki <matti.lehtimaki@jolla.com> - 1.0+git31
 - Replace kernel-headers with linux-glibc-devel in list of packages. JB#59595
 

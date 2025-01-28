@@ -5,7 +5,7 @@
 %global __os_install_post %{nil}
 
 Name:          sb2-tools-armv7hl-inject
-Version:       1.0+git31
+Version:       1.0+git32
 Release:       1
 AutoReqProv:   0
 BuildRequires: rpm grep tar patchelf sed
@@ -21,7 +21,7 @@ License:       BSD
 Summary:       SB2 cross tools
 
 %description
-This is a package providing %packages_in_tools %cross_compilers for SB2 tools directory 
+This is a package providing %packages_in_tools %cross_compilers for SB2 tools directory
 It is not intended to be used in a normal system!
 
 
@@ -118,7 +118,6 @@ EOF
 touch %buildroot/etc/sb2-tools-template
 
 %files -f filesincluded
-%defattr(-,root,root)
 %dir /var/log
 %dir /root/
 %dir /var/cache/ldconfig/
@@ -127,5 +126,4 @@ touch %buildroot/etc/sb2-tools-template
 %verify(not md5 size mtime) %attr(0400,root,root) %config(noreplace) /etc/gshadow
 
 %files -n sb2-tools-armv7hl-dependency-inject
-%defattr(-,root,root)
 /etc/sb2-tools-template
