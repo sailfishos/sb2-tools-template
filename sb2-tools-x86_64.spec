@@ -1,10 +1,10 @@
 %define packages_in_tools autoconf automake gnu-bash binutils gnu-which bzip2 bzip2-libs cargo ccache clang clang-libs cmake cpio cpp db4 gnu-diffutils doxygen elfutils elfutils-libelf elfutils-libs expat fakeroot fdupes file file-libs filesystem gnu-findutils fontconfig freetype gawk gcc gcc-c++ glib2 glibc glibc-common glibc-devel glibc-headers gmp gnu-coreutils gnu-grep gnu-gzip libacl libarchive libattr libblkid libcap libcap libcurl libgcc libgomp libicu liblua lua-posix libmount libnghttp2 libpsl libsb2 libsmartcols libstdc++ libstdc++-devel libuuid libxml2 llvm-libs linux-glibc-devel m4 make mpc mpfr ncurses-libs net-tools nspr nss nss-pem nss-softokn-freebl openssl-libs libxcrypt pam pcre pcre2 perl perl-libs perl-Scalar-List-Utils perl-threads perl-threads-shared popt python3-base python3-libs python3-setuptools python3-rpm-generators qemu-usermode readline rpm rpm-build rpm-devel rpm-libs rpm-sign rpmlint-mini rust scratchbox2 gnu-sed setup sqlite-libs gnu-tar util-linux xz xz-libs zip zlib zstd libzstd
-%define cross_compilers   cross-i486-gcc cross-i486-binutils
-%define _target_cpu i486
+%define cross_compilers   cross-x86_64-gcc cross-x86_64-binutils
+%define _target_cpu x86_64
 # Prevent stripping, python-bytecompiling etc. as this has been already done for the packages
 %global __os_install_post %{nil}
 
-Name:          sb2-tools-i486-inject
+Name:          sb2-tools-x86_64-inject
 Version:       1.0+git32
 Release:       1
 AutoReqProv:   0
@@ -25,10 +25,10 @@ This is a package providing %packages_in_tools %cross_compilers for SB2 tools di
 It is not intended to be used in a normal system!
 
 
-%package -n sb2-tools-i486-dependency-inject
+%package -n sb2-tools-x86_64-dependency-inject
 Summary: Dependency for sb2 host side
 
-%description -n sb2-tools-i486-dependency-inject
+%description -n sb2-tools-x86_64-dependency-inject
 This is a package providing %packages_in_tools %cross_compilers for SB2 tools directory
 It is not intended to be used in a normal system!
 
@@ -125,5 +125,5 @@ touch %buildroot/etc/sb2-tools-template
 %verify(not md5 size mtime) %attr(0400,root,root) %config(noreplace) /etc/shadow
 %verify(not md5 size mtime) %attr(0400,root,root) %config(noreplace) /etc/gshadow
 
-%files -n sb2-tools-i486-dependency-inject
+%files -n sb2-tools-x86_64-dependency-inject
 /etc/sb2-tools-template
