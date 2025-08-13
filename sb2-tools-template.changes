@@ -1,3 +1,6 @@
+* Wed Aug 13 2025 Matti Viljanen <matti.viljanen@jolla.com> - 1.0+git33
+- Add debugedit dependency. JB#62519
+
 * Mon Aug 11 2025 Matti Lehtimäki <matti.lehtimaki@jolla.com> - 1.0+git32
 - Add x86_64 support. JB#63081
 - Include perl-parent. JB#57055

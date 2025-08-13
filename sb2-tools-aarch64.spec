@@ -5,7 +5,7 @@
 %global __os_install_post %{nil}
 
 Name:          sb2-tools-aarch64-inject
-Version:       1.0+git32
+Version:       1.0+git33
 Release:       1
 AutoReqProv:   0
 BuildRequires: rpm grep tar patchelf sed
