@@ -1,3 +1,6 @@
+* Mon Oct 12 2026 Matti Lehtimäki <matti.lehtimaki@jolla.com> - 1.0+git35
+- Remove useless packages. JB#65507
+
 * Mon Dec 01 2025 Matti Lehtimäki <matti.lehtimaki@jolla.com> - 1.0+git34
 - Include rpm-build-libs needed by rpm-build. JB#63754
 
